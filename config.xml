@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.example.app" versionCode="1.8.1" version="1.8.1">
+  <name>Cordova Sample</name>
+  <description>
+        Cordova Simple Mobile App
+    </description>
+  <author email="dpoarch@outlook.com" href="https://github.com/dpoarch">
+        dpoarch
+    </author>
+  <content src="index.html"/>
+  <preference name="AndroidXEnabled" value="true"/>
+  <preference name="android-minSdkVersion" value="22"/>
+  <preference name="android-targetSdkVersion" value="30"/>
+  <allow-navigation href="*"/>
+  <allow-intent href="itms:*"/>
+  <allow-intent href="itms-apps:*"/>
+  <gap:config-file platform="android" parent="/manifest">
+    <supports-screens android:xlargeScreens="true" android:largeScreens="true" android:smallScreens="true"/>
+    <application android:theme="@android:style/Theme.NoTitleBar">
+        </application>
+  </gap:config-file>
+  <platform name="android">
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <application android:usesCleartextTraffic="true"/>
+    </edit-config>
+    <config-file target="AndroidManifest.xml" parent="/*/application">
+      <uses-library android:name="org.apache.http.legacy" android:required="true"/>
+    </config-file>
+    <preference name="android-targetSdkVersion" value="30"/>
+    <preference name="AndroidXEnabled" value="true"/>
+  </platform>
+  <platform name="ios">
+    <allow-intent href="tel:*"/>
+    <allow-navigation href="tel:*"/>
+    <allow-intent href="mailto:*"/>
+    <allow-navigation href="mailto:*"/>
+    <preference name="WKWebViewOnly" value="true"/>
+    <feature name="CDVWKWebViewEngine">
+      <param name="ios-package" value="CDVWKWebViewEngine"/>
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine"/>
+    <preference name="scheme" value="monaca-app"/>
+    <preference name="hostname" value="localhost"/>
+  </platform>
+  <preference name="WindowsStorePublisherName" value="My Name"/>
+  <preference name="WindowsStoreIdentityName" value="784321d4-bab8-3957-d0a2-426559520ecc"/>
+  <preference name="ios-XCBuildConfiguration-TARGETED_DEVICE_FAMILY" value="1"/>
+  <preference name="AutoHideSplashScreen" value="false"/>
+  <preference name="FadeSplashScreen" value="false"/>
+  <preference name="ShowSplashScreenSpinner" value="false"/>
+  <preference name="EnableViewportScale" value="false"/>
+  <access origin="*"/>
+  <access origin="tel:*"/>
+  <preference name="KeepRunning" value="true"/>
+  <preference name="monaca:AndroidIsPackageNameSeparate" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="Orientation" value="default"/>
+  <preference name="SplashScreenDelay" value="0"/>
+  <preference name="Fullscreen" value="false"/>
+  <preference name="AllowInlineMediaPlayback" value="true"/>
+  <preference name="StatusBarStyle" value="lightcontent" />
+</widget>
